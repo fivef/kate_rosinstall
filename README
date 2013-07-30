@@ -1,0 +1,10 @@
+Create a robuild workspace
+wstool merge https://raw.github.com/fivef/kate_rosinstall/master/rosinstall_rosbuild_workspace
+
+Create catkin workspace
+wstool merge https://github.com/fivef/kate_rosinstall/blob/master/rosinstall_catkin_workspace
+
+Add this to your .rosinstall file in your rosbuild workspace and replace <your_catkin_workspace>:
+- setup-file: {local-name: <your_catkin_workspace>/devel/setup.sh}
+
+source <your_rosbuild_workspace>/setup.sh
