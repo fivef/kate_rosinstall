@@ -1,3 +1,6 @@
+sudo apt-get install ros-groovy-moveit-full
+
+
 Create a robuild workspace
 wstool merge https://raw.github.com/fivef/kate_rosinstall/master/rosinstall_rosbuild_workspace
 
