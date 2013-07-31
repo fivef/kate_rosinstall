@@ -1,4 +1,8 @@
 sudo apt-get install ros-groovy-moveit-full
+sudo apt-get install ros-groovy-arm-navigation
+sudo apt-get install ros-groovy-pr2-controllers
+sudo apt-get install ros-groovy-object-recognition-msgs
+sudo apt-get install ros-groovy-pr2-common-actions
 
 
 Create a robuild workspace
