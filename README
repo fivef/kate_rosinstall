@@ -3,6 +3,10 @@ sudo apt-get install ros-groovy-arm-navigation
 sudo apt-get install ros-groovy-pr2-controllers
 sudo apt-get install ros-groovy-object-recognition-msgs
 sudo apt-get install ros-groovy-pr2-common-actions
+sudo apt-get install ros-groovy-pr2-object-manipulation
+
+cd ~/groovy_ws
+rosdep install katana_driver
 
 
 Create a robuild workspace
