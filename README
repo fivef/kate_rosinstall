@@ -1,9 +1,9 @@
-sudo apt-get install ros-groovy-moveit-full
-sudo apt-get install ros-groovy-arm-navigation
-sudo apt-get install ros-groovy-pr2-controllers
-sudo apt-get install ros-groovy-object-recognition-msgs
-sudo apt-get install ros-groovy-pr2-common-actions
-sudo apt-get install ros-groovy-pr2-object-manipulation
+sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker
+
+#needed to generate the ik-fast plugin
+sudo add-apt-repository ppa:openrave/release
+sudo apt-get update
+sudo apt-get install openrave
 
 cd ~/groovy_ws
 rosdep install katana_driver
@@ -18,4 +18,18 @@ wstool merge https://github.com/fivef/kate_rosinstall/blob/master/rosinstall_cat
 Add this to your .rosinstall file in your rosbuild workspace and replace <your_catkin_workspace>:
 - setup-file: {local-name: <your_catkin_workspace>/devel/setup.sh}
 
-source <your_rosbuild_workspace>/setup.sh
+
+
+Make alle packages!
+No need to build urdf_tools
+
+Add this to your .bashrc: replace <your_rosbuild_workspace>
+
+source <your_rosbuild_workspace>/setup.bash
+export KATANA_TYPE="katana_300_6m180"
+
+
+Create a sh file with the following content if you use a usb to serial converter:
+mv /dev/ttyS0 /dev/ttyS0.backup
+ln -s /dev/ttyUSB0 /dev/ttyS0
+chmod 777 /dev/ttyUSB0

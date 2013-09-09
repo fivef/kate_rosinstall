@@ -12,7 +12,4 @@
 - git: {local-name: ar_tools, uri: 'https://github.com/IHeartEngineering/ar_tools'}
 - svn: {local-name: overlay/tabletop_collision_map_processing, uri: 'https://code.ros.org/svn/wg-ros-pkg/stacks/pr2_object_manipulation/trunk/perception/tabletop_collision_map_processing'}
 - git: {local-name: p2os, uri: 'https://github.com/allenh1/p2os.git'}
-- git: {local-name: robodart_control, uri: 'https://github.com/mauerm/unschlagbar_robodart_control.git'}
-- git: {local-name: robodart_vision, uri: 'http://github.com/mauerm/unschlagbar_robodart_vision.git'}
-- git: {local-name: ueye_cam, uri: 'https://github.com/anqixu/ueye_cam'}
 
