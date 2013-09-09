@@ -1,4 +1,4 @@
-- git: {local-name: katana_driver, uri: 'https://github.com/fivef/katana_driver.git', version: robodart}
+- git: {local-name: katana_driver, uri: 'https://github.com/fivef/katana_driver.git', version: moveToEnc4D}
 - git: {local-name: kurtana_robot, uri: 'https://github.com/fivef/kurtana_robot.git', version: groovy}
 - git: {local-name: katana_manipulation, uri: 'https://github.com/fivef/katana_manipulation.git', version: groovy}
 - git: {local-name: uos_tools, uri: 'https://github.com/uos/uos_tools'}
