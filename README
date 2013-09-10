@@ -1,35 +1,53 @@
-sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker
+For later ROS distributions replace groovy with <DISTRIBUTION NAME>
 
-#needed to generate the ik-fast plugin
-sudo add-apt-repository ppa:openrave/release
-sudo apt-get update
-sudo apt-get install openrave
+For Groovy:
+sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-pr2-controllers-msgs ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-ivcon
+
+#only needed if you want to regenerate the ik-fast plugin!!!
+  sudo add-apt-repository ppa:openrave/release
+  sudo apt-get update
+  sudo apt-get install openrave
 
 cd ~/groovy_ws
 rosdep install katana_driver
 
 
-Create a robuild workspace
-wstool merge https://raw.github.com/fivef/kate_rosinstall/master/rosinstall_rosbuild_workspace
+Create a robuild workspace:
+  mkdir ~/rosbuild_ws
+  cd ~/rosbuild_ws
+  rosws init . /opt/ros/groovy/
+  wstool merge https://raw.github.com/fivef/kate_rosinstall/master/rosinstall_rosbuild_workspace
+  wstool update
 
-Create catkin workspace
-wstool merge https://github.com/fivef/kate_rosinstall/blob/master/rosinstall_catkin_workspace
+Create catkin workspace:
+  mkdir -p ~/catkin_ws/src
+  cd ~/catkin_ws/src
+  catkin_init_workspace
+  cd ~/catkin_ws
+  catkin_make
+  cd ~/catkin_ws/src
+  wstool merge https://github.com/fivef/kate_rosinstall/blob/master/rosinstall_catkin_workspace
+  wstool update
 
-Add this to your .rosinstall file in your rosbuild workspace and replace <your_catkin_workspace>:
-- setup-file: {local-name: <your_catkin_workspace>/devel/setup.sh}
-
+  Add this to your .rosinstall file in your rosbuild workspace and replace <your_catkin_workspace>:
+  - setup-file: {local-name: <your_catkin_workspace>/devel/setup.sh}
 
 
 Make alle packages!
+  cd ~/rosbuild_ws
+  rosmake -a
+
+  cd ~/catkin_ws
+  catkin_make
+
 No need to build urdf_tools
 
-Add this to your .bashrc: replace <your_rosbuild_workspace>
+Add this to your .bashrc (replace <your_rosbuild_workspace>):
+  source <your_rosbuild_workspace>/setup.bash
+  export KATANA_TYPE="katana_300_6m180"
 
-source <your_rosbuild_workspace>/setup.bash
-export KATANA_TYPE="katana_300_6m180"
 
-
-Create a sh file with the following content if you use a usb to serial converter:
-mv /dev/ttyS0 /dev/ttyS0.backup
-ln -s /dev/ttyUSB0 /dev/ttyS0
-chmod 777 /dev/ttyUSB0
+Create a sh file with the following content if your katana is connected with a USB To Serial Converter:
+  mv /dev/ttyS0 /dev/ttyS0.backup
+  ln -s /dev/ttyUSB0 /dev/ttyS0
+  chmod 777 /dev/ttyUSB0
