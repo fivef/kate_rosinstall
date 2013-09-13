@@ -1,16 +1,12 @@
 For later ROS distributions replace groovy with <DISTRIBUTION NAME>
 
 For Groovy:
-sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-pr2-controllers-msgs ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-ivcon
+sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-ivcon
 
 #only needed if you want to regenerate the ik-fast plugin!!!
   sudo add-apt-repository ppa:openrave/release
   sudo apt-get update
   sudo apt-get install openrave
-
-cd ~/groovy_ws
-rosdep install katana_driver
-
 
 Create a robuild workspace:
   mkdir ~/rosbuild_ws
@@ -26,21 +22,25 @@ Create catkin workspace:
   cd ~/catkin_ws
   catkin_make
   cd ~/catkin_ws/src
-  wstool merge https://github.com/fivef/kate_rosinstall/blob/master/rosinstall_catkin_workspace
+  rosws init . /opt/ros/groovy/
+  wstool merge https://raw.github.com/fivef/kate_rosinstall/master/rosinstall_catkin_workspace
   wstool update
 
   Add this to your .rosinstall file in your rosbuild workspace and replace <your_catkin_workspace>:
   - setup-file: {local-name: <your_catkin_workspace>/devel/setup.sh}
 
 
-Make alle packages!
+
+Make all packages!
   cd ~/rosbuild_ws
+  source setup.bash
+  rosdep install katana_driver
   rosmake -a
 
   cd ~/catkin_ws
+  source devel/setup.bash
   catkin_make
 
-No need to build urdf_tools
 
 Add this to your .bashrc (replace <your_rosbuild_workspace>):
   source <your_rosbuild_workspace>/setup.bash
