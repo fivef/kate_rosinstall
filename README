@@ -26,7 +26,7 @@ Create catkin workspace:
   cd ~/catkin_ws
   catkin_make
   cd ~/catkin_ws/src
-  wstool merge https://github.com/fivef/kate_rosinstall/blob/master/rosinstall_catkin_workspace
+  wstool merge https://raw.github.com/fivef/kate_rosinstall/master/rosinstall_catkin_workspace
   wstool update
 
   Add this to your .rosinstall file in your rosbuild workspace and replace <your_catkin_workspace>:
