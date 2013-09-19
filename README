@@ -1,3 +1,5 @@
+This Package contains rosinstall files and instructions to setup a work environment for working with our robot Kate.
+
 For later ROS distributions replace groovy with <DISTRIBUTION NAME>
 
 For Groovy:
