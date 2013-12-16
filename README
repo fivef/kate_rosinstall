@@ -1,11 +1,13 @@
 This Package contains rosinstall files and instructions to setup a work environment for working with our robot Kate.
 
+Follow the tutorial http://wiki.ros.org/groovy/Installation/Ubuntu until step 1.3
+
 For later ROS distributions replace groovy with <DISTRIBUTION NAME>
 
 For Groovy:
 sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-ivcon
 
-#only needed if you want to regenerate the ik-fast plugin!!!
+#only needed if you want to regenerate the ik-fast plugin:
   sudo add-apt-repository ppa:openrave/release
   sudo apt-get update
   sudo apt-get install openrave
