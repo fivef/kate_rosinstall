@@ -5,7 +5,7 @@ Follow the tutorial http://wiki.ros.org/groovy/Installation/Ubuntu until step 1.
 For later ROS distributions replace groovy with <DISTRIBUTION NAME>
 
 For Groovy:
-sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-ivcon
+sudo apt-get install ros-groovy-moveit-full ros-groovy-arm-navigation ros-groovy-pr2-controllers ros-groovy-object-recognition-msgs ros-groovy-pr2-common-actions ros-groovy-pr2-object-manipulation ros-groovy-openni-camera ros-groovy-openni-launch ros-groovy-openni-tracker ros-groovy-ivcon ros-groovy-rqt ros-groovy-rqt-common-plugins
 
 #only needed if you want to regenerate the ik-fast plugin:
   sudo add-apt-repository ppa:openrave/release
@@ -51,6 +51,16 @@ Make all packages!
 Add this to your .bashrc (replace <your_rosbuild_workspace>):
   source <your_rosbuild_workspace>/setup.bash
   export KATANA_TYPE="katana_300_6m180"
+  
+For Jaco Jaco USB access:
+  Copy Jaco udev rule to your udev rules folder:
+  sudo cp ~/groovy_rosbuild_workspace/jaco_ros/jaco_driver/udev/99-jaco-arm.rules /lib/udev/rules.d/
+  
+  Simply copy the Kinova folder to you home folder or alternatively install the Jaco driver as described in the Jaco documentation:
+  sudo cp -r ~/groovy_rosbuild_workspace/jaco_ros/jaco_driver/Kinova ~
+  
+  Install Mono:
+  sudo apt-get install mono-devel
 
 
 Create a sh file with the following content if your katana is connected with a USB To Serial Converter:
