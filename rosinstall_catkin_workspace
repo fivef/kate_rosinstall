@@ -1,4 +1,3 @@
 - git: {local-name: moveit_ikfast, uri: 'https://github.com/ros-planning/moveit_ikfast.git'}
 - git: {local-name: kurtana_moveit_config, uri: 'https://github.com/fivef/kurtana_moveit_config.git'}
-- git: {local-name: robot_model_py, uri: 'https://github.com/laas/robot_model_py.git'}
-
+- git: {local-name: robot_model_py, uri: 'https://github.com/laas/robot_model_py.git', version: groovy}
